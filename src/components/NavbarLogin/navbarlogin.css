@@ -1,1 +1,18 @@
+.navlogin {
+    padding: 0 8px;
+}
 
+.navbar .unilink img{
+    width: 80%;
+}
+
+.login-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.login-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}

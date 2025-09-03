@@ -1,0 +1,21 @@
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box input {
+    background-color: #ffffff;
+    border: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    margin: 5px;
+    width: 100%;
+}

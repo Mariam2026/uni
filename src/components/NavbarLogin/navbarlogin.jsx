@@ -1,18 +1,16 @@
 import "./navbarlogin.css";
-import logoImage from "../../assets/logo.png";
-export default function Navbar({ studentName, profilePic }) {
+import logo from "../../assets/logo.png";
+export default function Navbarlogin() {
   return (
-    <header className="navbar">
-          <div className="nav-left">
-            <img 
-              src={logoImage} 
-              alt="UniLink Logo" 
-              style={{ height: 40 }}
-            />
-          </div>
-          <div className="nav-right">
-            <a href="#" className="login-link">Login</a>
-          </div>
-        </header>
+    <nav class="navbar navlogin">
+      <div class="container-fluid">
+        <a class="unilink">
+          <img src={logo} alt="UniLink logo" />
+        </a>
+        <a href="#" className="login-link">
+          Login
+        </a>
+      </div>
+    </nav>
   );
 }
