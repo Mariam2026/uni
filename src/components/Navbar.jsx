@@ -18,5 +18,5 @@ export default function Navbar({ studentName, profilePic }) {
         />
       </div>
     </header>
-  );
+  );
 }
