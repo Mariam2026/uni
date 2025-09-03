@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiFileText, FiCalendar, FiBell } from "react-icons/fi";
+import "./RecentActivity.css";
 
 export default function RecentActivity() {
   const [recentActivity, setRecentActivity] = useState([]);

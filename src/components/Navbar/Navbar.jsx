@@ -1,4 +1,5 @@
-import logoImage from "../assets/logo.png";
+import logoImage from "../../assets/logo.png";
+import "./Navbar.css";
 export default function Navbar({ studentName, profilePic }) {
   return (
     <header className="navbar">
@@ -6,7 +7,7 @@ export default function Navbar({ studentName, profilePic }) {
         <img 
           src={logoImage} 
           alt="UniLink Logo" 
-          style={{ height: 40 }}  // adjust as needed
+          style={{ height: 40 }}  
         />
       </div>
       <div className="nav-right">

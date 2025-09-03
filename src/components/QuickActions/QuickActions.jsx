@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiPlus, FiCalendar, FiBell } from "react-icons/fi";
+import "./QuickActions.css";
 
 export default function QuickActions() {
   return (
