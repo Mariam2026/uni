@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiHome, FiFileText, FiCalendar, FiBell, FiUser } from "react-icons/fi";
+import "./Sidebar.css";
 
 export default function Sidebar() {
   return (

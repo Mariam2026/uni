@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
-import QuickActions from "../../components/QuickActions";
-import StatsSection from "../../components/StatsSection";
-import RecentActivity from "../../components/RecentActivity";
-import "./Home.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import QuickActions from "../../components/QuickActions/QuickActions";
+import StatsSection from "../../components/Stats/StatsSection";
+import RecentActivity from "../../components/RecentActivity/RecentActivity";
+import "./Layout.css";
 
 export default function Home() {
   const [activeRequests, setActiveRequests] = useState(0);

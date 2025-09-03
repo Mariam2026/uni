@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Stats.css";
 
 export default function StatsSection({ activeRequests, upcomingAppointment }) {
   return (
