@@ -1,0 +1,47 @@
+/* Stats.css */
+
+
+
+.stats-section {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 450px;
+  margin-top: 20px;
+}
+
+.stat-card:first-child {
+  margin-left: 30px;
+}
+
+.stat-card h3 {
+  font-size: 20px;
+  margin-top: 0;
+  color: #000;
+  font-weight: normal;
+}
+
+.stat-number {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 15px 15px;
+}
+
+.stat-card a {
+  font-size: 20px;
+  color: #004aad;
+  text-decoration: none;
+  margin-top: -5px;
+}
+
+.stat-card a:hover {
+  text-decoration: underline;
+}
