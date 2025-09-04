@@ -1,26 +1,33 @@
 /* Stats.css */
 
 
-
 .stats-section {
   display: flex;
-  gap: 50px;
+  flex-wrap: wrap;       
+  gap: 75px;             
   margin-bottom: 20px;
+  justify-content: center;
+   margin-right: 20px;
+  
 }
 
+
 .stat-card {
-  flex: 1;
+  flex: 1 1 300px;        
   background: #fff;
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 20px;
   border-radius: 10px;
-  max-width: 450px;
+  max-width: 500px;
+  box-sizing: border-box;
   margin-top: 20px;
+  
 }
 
 .stat-card:first-child {
-  margin-left: 30px;
+  margin-left: 0;
 }
+
 
 .stat-card h3 {
   font-size: 20px;
@@ -29,19 +36,62 @@
   font-weight: normal;
 }
 
+
 .stat-number {
   font-size: 50px;
   font-weight: bold;
-  margin: 15px 15px;
+  margin: 15px 0;
 }
 
+
 .stat-card a {
-  font-size: 20px;
+  font-size: 18px;
   color: #004aad;
   text-decoration: none;
-  margin-top: -5px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .stat-card a:hover {
   text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stat-card {
+    flex: 1 1 45%;       /* Two cards per row on tablets */
+    padding: 18px;
+  }
+
+  .stat-number {
+    font-size: 40px;
+  }
+
+  .stat-card a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    gap: 15px;
+  }
+
+  .stat-card {
+    flex: 1 1 100%;      /* Full width on mobile */
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 35px;
+  }
+
+  .stat-card h3 {
+    font-size: 18px;
+  }
+
+  .stat-card a {
+    font-size: 15px;
+  }
 }
