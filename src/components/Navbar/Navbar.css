@@ -30,7 +30,7 @@
   flex-shrink: 1;         
 }
 
-/* Optional adjustments for very small screens */
+
 @media (max-width: 400px) {
   .normal-navbar {
     padding: 0 10px;
