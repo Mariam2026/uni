@@ -3,30 +3,39 @@
 
 .quick-actions {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap; 
+  gap: 25px;
   margin-bottom: 30px;
+  justify-content: center; 
 }
+
 
 .action-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 35px;
+  gap: 20px; 
   background: #fff;
   border: 2px solid #f2f4f7;
-  padding: 10px;
+  padding: 15px 25px; 
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 20px; 
   color: #000;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s, color 0.2s;
-  width: 300px;
-  height: 100px;
+
+  width: 100%;        
+  max-width: 350px;   
+  min-width: 220px;   
+  height: 120px;      
+  box-sizing: border-box; 
 }
 
+
 .action-card:first-child {
-  margin-left: 30px;
+  margin-left: 0;
 }
+
 
 .action-card:hover {
   background: #f5f5f5;
@@ -42,4 +51,15 @@
 
 .action-card:hover .action-icon {
   color: #1349a0;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 500px) {
+  .action-card {
+    flex-direction: column; 
+    gap: 12px;
+    height: auto; 
+    padding: 20px;
+    font-size: 18px;
+  }
 }
