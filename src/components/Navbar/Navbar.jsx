@@ -2,7 +2,7 @@ import logoImage from "../../assets/logo.png";
 import "./Navbar.css";
 export default function Navbar({ studentName, profilePic }) {
   return (
-    <header className="navbar">
+    <header className="normal-navbar">
       <div className="nav-left">
         <img 
           src={logoImage} 
