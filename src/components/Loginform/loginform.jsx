@@ -1,12 +1,12 @@
-import "./signupform.css";
+import "./loginform.css";
 
-export default function SignupForm() {
+export default function LoginForm() {
   return (
     <div class="container">
       <div class="form-container">
-        <h3 class="text-center form-title">Join UniLink</h3>
+        <h3 class="text-center form-title">Login</h3>
         <p class="text-center text-muted mb-4">
-          Create your account to get started
+          Login to your account
         </p>
 
         <form>
@@ -20,42 +20,32 @@ export default function SignupForm() {
           </div>
           <div class="mb-3">
             <input
-              type="email"
-              class="form-control"
-              placeholder="Email address"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <input
               type="password"
               class="form-control"
               placeholder="Password"
               required
             />
           </div>
-          <div class="mb-3">
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Confirm password"
-              required
-            />
-          </div>
           <div class="form-check mb-3">
             <input type="checkbox" class="form-check-input" id="adminCheck" />
             <label for="adminCheck" class="form-check-label">
-              Sign up as admin
+              Remember me
             </label>
           </div>
           <button type="submit" class="btn btn-primary w-100">
-            Sign Up
+            Login
           </button>
         </form>
 
         <div class="text-center mt-3">
           <small>
-            Already have an account? <a href="#">Login</a>
+            <a href="#">Forgot password?</a>
+          </small>
+        </div>
+
+        <div class="text-center mt-3">
+          <small>
+            Don't have an account? <a href="#">Sign-Up</a>
           </small>
         </div>
       </div>
