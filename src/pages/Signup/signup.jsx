@@ -1,11 +1,11 @@
 import "./signup.css"
-import Navbarlogin from "../../components/NavbarLogin/navbarlogin";
+import Navbarsignup from "../../components/NavbarSignup/navbarsignup";
 import SignupForm from "../../components/Signupform/signupform";
 
 export default function Signup() {
   return (
     <>
-      <Navbarlogin />
+      <Navbarsignup />
       <div className="signup-form">
         <SignupForm />
       </div>
