@@ -1,0 +1,77 @@
+.request-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  margin-left: 12px;
+}
+
+
+.request-info {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* spacing between icon and text */
+}
+
+.request-icon {
+  color: black;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.create-link {
+  font-size: 22px;          /* bigger */
+  font-weight: 600;
+  color: #1751cc;           /* blue text */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;                 /* spacing between + and text */
+}
+
+.create-link:hover {
+  text-decoration: underline; /* subtle hover effect */
+}
+
+.plus {
+  font-size: 28px;          /* bigger + sign */
+  line-height: 1;
+}
+
+
+
+.request-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.request-text .title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #111;
+}
+
+.request-text .time {
+  font-size: 13px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Status pill */
+.status {
+  font-size: 14px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  color: #555;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-left: auto;
+  min-width: 90px;
+  text-align: center;
+}

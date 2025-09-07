@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import SubmitRequestDrop from "../../components/Submitrequest/Submitrequestdrop";
-import "../Dashboard/Layout.css"; // ✅ reuse the same layout CSS
+import "../Dashboard/Layout.css"; 
 
 export default function SubmitRequest() {
     const storedUser = JSON.parse(localStorage.getItem("user")) || {};
