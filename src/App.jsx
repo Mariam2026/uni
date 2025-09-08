@@ -3,16 +3,17 @@ import Home from "./pages/Dashboard/Home";
 import Signup from "./pages/Signup/signup";
 import SubmitRequest from "./pages/Submitrequest/Submitrequest";
 import RequestHistory from "./pages/Requesthistory/requesthistory";
+import Login from "./pages/Login/login";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Signup />} />
-        <Route path="/requests/new" element={<SubmitRequest />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Home />} />
-        <Route path="/requests" element={<RequestHistory/>} />
-        
+        <Route path="/requests/new" element={<SubmitRequest />} />
+        <Route path="/requests" element={<RequestHistory />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,6 @@
-import "./navbarlogin.css";
+import "./navbarsignup.css";
 import logo from "../../assets/logo.png";
-export default function Navbarlogin() {
+export default function Navbarsignup() {
   return (
     <nav class="navbar">
       <div class="container-fluid">
@@ -8,7 +8,7 @@ export default function Navbarlogin() {
           <img src={logo} alt="UniLink logo" />
         </a>
         <a href="#" className="login-link">
-          Sign-up
+          Login
         </a>
       </div>
     </nav>
