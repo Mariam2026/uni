@@ -10,21 +10,31 @@ export default function Home() {
   const [activeRequests, setActiveRequests] = useState(0);
   const [upcomingAppointment, setUpcomingAppointment] = useState("No upcoming");
 
-  
   const storedUser = JSON.parse(localStorage.getItem("user")) || {};
   const studentName = storedUser.name || "Student Name";
   const profilePic = storedUser.profilePic || "";
 
   useEffect(() => {
-  
-    fetch("")
+   
+    fetch("http://localhost:8080/api/requests", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setActiveRequests(data.length))
       .catch((err) => console.error("Error fetching requests:", err));
 
-    fetch("")
+    
+    fetch("", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setUpcomingAppointment(data.date || "No upcoming"))
+      .then((data) =>
+        setUpcomingAppointment(data.date ? data.date : "No upcoming")
+      )
       .catch((err) => console.error("Error fetching appointments:", err));
   }, []);
 
@@ -37,10 +47,10 @@ export default function Home() {
           <h2>Dashboard</h2>
           <QuickActions />
           <StatsSection
-            activeRequests={activeRequests}
+            activeRequests={activeRequests}   
             upcomingAppointment={upcomingAppointment}
           />
-          <h3>Recent  Activity</h3>
+          <h3>Recent Activity</h3>
           <RecentActivity />
         </main>
       </div>
