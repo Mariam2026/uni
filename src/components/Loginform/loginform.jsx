@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./loginform.css";
 
 export default function LoginForm() {
@@ -5,9 +6,7 @@ export default function LoginForm() {
     <div class="container">
       <div class="form-container">
         <h3 class="text-center form-title">Login</h3>
-        <p class="text-center text-muted mb-4">
-          Login to your account
-        </p>
+        <p class="text-center text-muted mb-4">Login to your account</p>
 
         <form>
           <div class="mb-3">
@@ -39,13 +38,18 @@ export default function LoginForm() {
 
         <div class="text-center mt-3">
           <small>
-            <a href="#">Forgot password?</a>
+            <Link to={"/resetpassword"}>
+              <a>Forgot password?</a>
+            </Link>
           </small>
         </div>
 
         <div class="text-center mt-3">
           <small>
-            Don't have an account? <a href="#">Sign-Up</a>
+            Don't have an account?{" "}
+            <Link to={"/"}>
+              <a href="#">Sign-Up</a>{" "}
+            </Link>
           </small>
         </div>
       </div>

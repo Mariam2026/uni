@@ -14,10 +14,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; 
+  gap: 15px; 
   background: #fff;
-  border: 2px solid #f2f4f7;
-  padding: 15px 25px; 
+  border: 2px #f2f4f7;
   border-radius: 15px;
   font-size: 20px; 
   color: #000;
@@ -29,6 +28,7 @@
   min-width: 220px;   
   height: 120px;      
   box-sizing: border-box; 
+  box-shadow: 0 4px 10px rgba(141, 141, 141, 0.1);
 }
 
 
@@ -41,6 +41,7 @@
   background: #f5f5f5;
   transform: translateY(-2px);
   color: #1349a0;
+  border: 2px solid #f2f4f7;
 }
 
 .action-icon {
