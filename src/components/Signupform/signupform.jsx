@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./signupform.css";
 
 export default function SignupForm() {
@@ -55,7 +56,10 @@ export default function SignupForm() {
 
         <div class="text-center mt-3">
           <small>
-            Already have an account? <a href="#">Login</a>
+            Already have an account?{" "}
+            <Link to={"/login"}>
+              <a>Login</a>
+            </Link>
           </small>
         </div>
       </div>
