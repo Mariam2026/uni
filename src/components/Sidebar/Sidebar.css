@@ -7,11 +7,9 @@
   border-right: 1px solid #ddd;
   padding: 20px;
   flex-shrink: 0;
-  height: 100vh;
   box-sizing: border-box;
   transition: width 0.3s;
 }
-
 
 .sidebar nav ul {
   list-style: none;
@@ -38,7 +36,7 @@
 
 .sidebar nav ul li a:hover {
   background: #e3e3e3b6;
-  color: #3c3c3e;
+  color: #1349a0;
 }
 
 /* Responsive adjustments */

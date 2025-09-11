@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./resetform.css";
 
 export default function ResetForm() {
@@ -24,9 +25,9 @@ export default function ResetForm() {
         </form>
 
         <div className="text-center mt-3">
-          <a href="#" className="text-decoration-none">
-            Back to Login
-          </a>
+          <Link to={"/login"}>
+            <a className="text-decoration-none">Back to Login</a>
+          </Link>
         </div>
       </div>
     </div>

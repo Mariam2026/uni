@@ -6,6 +6,7 @@ import RequestHistory from "./pages/Requesthistory/requesthistory";
 import Login from "./pages/Login/login";
 import ResetPassword from "./pages/ResetPassword/resetpassword";
 import ChangePassword from "./pages/ChangePassword/changepassword";
+import Appointments from "./pages/Appointments/appointments";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Home />} />
         <Route path="/requests/new" element={<SubmitRequest />} />
         <Route path="/requests" element={<RequestHistory />} />
+        <Route path="/appointments" element={<Appointments />} />
       </Routes>
     </Router>
   );
