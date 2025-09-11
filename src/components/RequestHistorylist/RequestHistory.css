@@ -10,6 +10,10 @@
 }
 
 
+.request-card :hover {
+  background: #f9f9ff; 
+}
+
 .request-info {
   display: flex;
   align-items: center;
