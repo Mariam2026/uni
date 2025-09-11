@@ -1,0 +1,60 @@
+
+.calendar {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.calendar table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  vertical-align: middle;
+  height: 80px;
+}
+
+.appointment-tag {
+  display: inline-block;
+  background-color: #34d399;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.upcoming-table {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.upcoming-table td {
+  vertical-align: middle;
+  padding: 15px;
+}
+
+.upcoming-table tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.upcoming-table tr:last-child {
+  border-bottom: none;
+}
+
+.btn-reschedule {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-reschedule:hover {
+  text-decoration: underline;
+}
