@@ -1,5 +1,3 @@
-/* RecentActivity.css */
-
 .recent-activity {
   background: #fff;
   border: 1px #ddd;
@@ -12,12 +10,10 @@
   box-shadow: 0 4px 10px rgba(141, 141, 141, 0.1); 
 }
 
-
-.recent-activity h3 {
+.recent-activity h2 {
   margin-bottom: 20px;
   font-size: 24px;
 }
-
 
 .recent-activity ul {
   list-style: none;
@@ -29,43 +25,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px solid #eee;
   gap: 12px;
 }
+.activity-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;   /* space between icon and sentence */
+  flex: 1;
+}
 
-.recent-activity li span {
+.activity-left svg {
+  font-size: 35px;
+  color: #444;
+}
+
+
+.activity-desc {
+  flex: 1;
+  font-size: 20px;   /* bigger text */
+  font-weight: 600;  /* bold */
+  color: #333;
+}
+
+.activity-time {
   color: gray;
   font-size: 13px;
+  font-weight: 400;
 }
 
 
-
-
-@media (max-width: 1024px) {
-  .recent-activity {
-    max-width: 800px;
-    padding: 25px;
-  }
-
-  .recent-activity h3 {
-    font-size: 22px;
-  }
-}
-
-/* Tablets & small screens */
-@media (max-width: 768px) {
-  .recent-activity {
-    width: 92%;
-    padding: 22px;
-  }
-
-  .recent-activity h3 {
-    font-size: 21px;
-  }
-}
-
-/* Mobile */
+/* Responsive */
 @media (max-width: 600px) {
   .recent-activity {
     width: 95%;
@@ -73,7 +64,7 @@
     margin: 20px auto;
   }
 
-  .recent-activity h3 {
+  .recent-activity h2 {
     font-size: 20px;
     text-align: center;
   }
@@ -84,22 +75,25 @@
     gap: 6px;
   }
 
-  .recent-activity li span {
+  .activity-desc {
+    font-size: 15px;
+  }
+
+  .activity-time {
     font-size: 12px;
   }
 }
 
-/* Small mobile */
 @media (max-width: 400px) {
   .recent-activity {
     padding: 15px;
   }
 
-  .recent-activity h3 {
+  .recent-activity h2 {
     font-size: 18px;
   }
 
   .recent-activity li {
     padding: 8px 0;
   }
-}
+} 
