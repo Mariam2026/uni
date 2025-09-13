@@ -1,0 +1,82 @@
+.notification-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  margin-left: 12px;
+  transition: background 0.2s ease;
+}
+
+.notification-card:hover {
+  background: #f9f9ff; 
+}
+
+.notification-info {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.notification-icon {
+  color: #000204;   
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.notification-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-text .title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111;
+}
+
+.notification-text .time {
+  font-size: 13px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Status pill (reused from requests but with colors per state) */
+.status {
+  font-size: 14px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-left: auto;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Different colors for statuses */
+.status.unread {
+  background: #eaf2ff;
+  border: 1px solid #1751cc;
+  color: #1751cc;
+}
+
+.status.read {
+  background: #f0f0f0;
+  border: 1px solid #bbb;
+  color: #555;
+}
+
+.status.active {
+  background: #e6f9f0;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+}
+
+.status.expired {
+  background: #fff3f3;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}

@@ -7,6 +7,7 @@ import Login from "./pages/Login/login";
 import ResetPassword from "./pages/ResetPassword/resetpassword";
 import ChangePassword from "./pages/ChangePassword/changepassword";
 import Appointments from "./pages/Appointments/appointments";
+import NotificationHistory from "./pages/Notification/NotificationHistory";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/requests/new" element={<SubmitRequest />} />
         <Route path="/requests" element={<RequestHistory />} />
         <Route path="/appointments" element={<Appointments />} />
+       <Route path= "/notifications" element={<NotificationHistory />} /> "/notifications"
       </Routes>
     </Router>
   );
