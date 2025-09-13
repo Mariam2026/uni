@@ -5,9 +5,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 export default function Appointments() {
   return (
     <>
-      {/* <Navbar />
-      <Sidebar /> */}
-      <AppointCalendar />
+      <Navbar />
+      <Sidebar />
     </>
   );
 }
