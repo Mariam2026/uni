@@ -3,34 +3,46 @@ import axios from "axios";
 import "./bookingform.css";
 
 export default function BookingForm() {
-  const [reason, setReason] = useState("Academic Advising");
-  const [staff, setStaff] = useState("Alex Smith");
+  const [purpose, setPurpose] = useState("Academic Advising");
+  const [staffID, setStaffID] = useState(1);
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("10:30"); 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const token = localStorage.getItem("token");
-
-      const res = await axios.post(
-        "http://localhost:8080/api/appointments",
-        { reason, staff, date },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      alert("Appointment scheduled successfully!");
-      console.log(res.data);
-    } catch (err) {
-      console.error(err.response?.data || err.message);
-      alert("Failed to schedule appointment");
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You must be logged in to book an appointment.");
+      return;
     }
-  };
+
+    const res = await axios.post(
+      "http://localhost:8080/api/appointments",
+      {
+        status: "Scheduled",       
+        purpose: purpose,
+        staffID: staffID,
+        date: date,                // backend should expect LocalDate
+        time: time + ":00",        // backend expects HH:mm:ss
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // ✅ token added
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    alert("Appointment scheduled successfully!");
+    console.log(res.data);
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+    alert("Failed to schedule appointment");
+  }
+};
+
 
   return (
     <div className="req">
@@ -42,8 +54,8 @@ export default function BookingForm() {
         <h2 className="type">Reason</h2>
         <select
           className="requestType"
-          value={reason}
-          onChange={(e) => setReason(e.target.value)}
+          value={purpose}
+          onChange={(e) => setPurpose(e.target.value)}
         >
           <option value="Academic Advising">Academic Advising</option>
           <option value="Career Counseling">Career Counseling</option>
@@ -53,12 +65,12 @@ export default function BookingForm() {
         <h2 className="type">Staff Member</h2>
         <select
           className="requestType"
-          value={staff}
-          onChange={(e) => setStaff(e.target.value)}
+          value={staffID}
+          onChange={(e) => setStaffID(Number(e.target.value))}
         >
-          <option value="Alex Smith">Alex Smith</option>
-          <option value="Sarah Johnson">Sarah Johnson</option>
-          <option value="Michael Brown">Michael Brown</option>
+          <option value={1}>Alex Smith</option>
+          <option value={2}>Sarah Johnson</option>
+          <option value={3}>Michael Brown</option>
         </select>
 
         <h2 className="type">Date</h2>
@@ -67,6 +79,15 @@ export default function BookingForm() {
           className="requestType"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          required
+        />
+
+        <h2 className="type">Time</h2>
+        <input
+          type="time"
+          className="requestType"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
           required
         />
 

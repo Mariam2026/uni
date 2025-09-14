@@ -3,9 +3,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import BookingForm from "../../components/BookingForm/bookingform";
 
 const BookAppointment = () => {
-  return (
-    <div className="dashboard-layout">
-        <Navbar />
+  const storedUser = JSON.parse(localStorage.getItem("user")) || {};
+    const studentName = storedUser.name || "Student Name";
+    const profilePic = storedUser.profilePic || "";
+    return (
+      <div className="dashboard-layout">
+        <Navbar studentName={studentName} profilePic={profilePic} />
         <div className="body-container">
             <Sidebar />
             <main className="main-content">

@@ -7,6 +7,7 @@ import Login from "./pages/Login/login";
 import ResetPassword from "./pages/ResetPassword/resetpassword";
 import ChangePassword from "./pages/ChangePassword/changepassword";
 import Appointments from "./pages/Appointments/appointments";
+import Bookinglist from "./pages/Appointments/Bookinglist";
 import NotificationHistory from "./pages/Notification/NotificationHistory";
 import BookAppointment from "./pages/BookAppointments/book";
 
@@ -21,8 +22,9 @@ function App() {
         <Route path="/dashboard" element={<Home />} />
         <Route path="/requests/new" element={<SubmitRequest />} />
         <Route path="/requests" element={<RequestHistory />} />
-        <Route path="/appointments" element={<Appointments />} />
-        <Route path="/booking" element={<BookAppointment />} />
+        <Route path="/appointments" element={<Bookinglist />} />
+        <Route path="/appointments/book" element={<BookAppointment />} />
+
        <Route path= "/notifications" element={<NotificationHistory />} /> "/notifications"
       </Routes>
     </Router>

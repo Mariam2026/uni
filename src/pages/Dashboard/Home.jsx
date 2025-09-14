@@ -15,27 +15,44 @@ export default function Home() {
   const profilePic = storedUser.profilePic || "";
 
   useEffect(() => {
-   
-    fetch("http://localhost:8080/api/requests", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setActiveRequests(data.length))
-      .catch((err) => console.error("Error fetching requests:", err));
+    const token = localStorage.getItem("token");
+    if (!token) return;
 
-    
-    fetch("", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) =>
-        setUpcomingAppointment(data.date ? data.date : "No upcoming")
-      )
-      .catch((err) => console.error("Error fetching appointments:", err));
+    const fetchData = async () => {
+      try {
+        // Fetch active requests
+        const reqRes = await fetch("http://localhost:8080/api/requests", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const reqData = await reqRes.json();
+        setActiveRequests(reqData.length);
+
+        // Fetch appointments
+        const apptRes = await fetch("http://localhost:8080/api/appointments", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const apptData = await apptRes.json();
+
+        if (!apptData.length) {
+          setUpcomingAppointment("No upcoming");
+        } else {
+          const now = new Date();
+          const upcoming = apptData
+            .filter(appt => new Date(appt.date) >= now)
+            .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+
+          setUpcomingAppointment(
+            upcoming
+              ? ` ${new Date(upcoming.date).toLocaleDateString()}`
+              : "No upcoming"
+          );
+        }
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -47,7 +64,7 @@ export default function Home() {
           <h2>Dashboard</h2>
           <QuickActions />
           <StatsSection
-            activeRequests={activeRequests}   
+            activeRequests={activeRequests}
             upcomingAppointment={upcomingAppointment}
           />
           <h3>Recent Activity</h3>
