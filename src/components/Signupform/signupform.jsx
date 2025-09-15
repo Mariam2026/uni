@@ -29,7 +29,7 @@ export default function SignupForm() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8080/api/auth/student/signup", {
+      const res = await fetch("http://localhost:8080/api/auth/staff/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -161,7 +161,7 @@ export default function SignupForm() {
               <option value="">Select Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              
             </select>
           </div>
           <div className="mb-3">

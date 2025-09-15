@@ -79,3 +79,51 @@
   min-width: 90px;
   text-align: center;
 }
+.search-bar {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 14px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #1751cc;
+  box-shadow: 0 0 5px rgba(23, 81, 204, 0.3);
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* Filters container */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin: 15px 12px 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+
+/* Dropdowns (filters) */
+.filters select,
+.filters input[type="date"] {
+  padding: 5px 100px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filters select:focus,
+.filters input[type="date"]:focus {
+  outline: none;
+  border-color: #1751cc;
+  box-shadow: 0 0 5px rgba(23, 81, 204, 0.3);
+}

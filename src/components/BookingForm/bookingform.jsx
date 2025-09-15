@@ -23,7 +23,7 @@ export default function BookingForm() {
       {
         status: "Scheduled",       
         purpose: purpose,
-        staffID: staffID,
+        staffID: 1,
         date: date,                // backend should expect LocalDate
         time: time + ":00",        // backend expects HH:mm:ss
       },
