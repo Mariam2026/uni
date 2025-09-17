@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import QuickActions from "../../components/QuickActions/QuickActions";
-import StatsSection from "../../components/Stats/StatsSection";
-import RecentActivity from "../../components/RecentActivity/RecentActivity";
+import StaffSidebar from "../../components/Sidebar/StaffSidebar";
+import StaffQuickActions from "../../components/QuickActions/StaffQuickActions";
+import StaffStatsSection from "../../components/Stats/StaffStatsSection";
+import StaffRecentActivity from "../../components/RecentActivity/StaffRecentActivity";
 import "./Layout.css";
 
-export default function Home() {
+export default function SHome() {
   const [activeRequests, setActiveRequests] = useState(0);
   const [upcomingAppointment, setUpcomingAppointment] = useState("No upcoming");
 
@@ -21,14 +21,14 @@ export default function Home() {
     const fetchData = async () => {
       try {
         // Fetch active requests
-        const reqRes = await fetch("http://localhost:8080/api/requests", {
+        const reqRes = await fetch("", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const reqData = await reqRes.json();
         setActiveRequests(reqData.length);
 
         // Fetch appointments
-        const apptRes = await fetch("http://localhost:8080/api/appointments", {
+        const apptRes = await fetch("", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const apptData = await apptRes.json();
@@ -59,16 +59,16 @@ export default function Home() {
     <div className="dashboard-layout">
       <Navbar studentName={studentName} profilePic={profilePic} />
       <div className="body-container">
-        <Sidebar />
+        <StaffSidebar />
         <main className="main-content">
           <h2>Dashboard</h2>
-          <QuickActions />
-          <StatsSection
+          <StaffQuickActions />
+          <StaffStatsSection
             activeRequests={activeRequests}
             upcomingAppointment={upcomingAppointment}
           />
           <h3>Recent Activity</h3>
-          <RecentActivity />
+          <StaffRecentActivity />
         </main>
       </div>
     </div>
