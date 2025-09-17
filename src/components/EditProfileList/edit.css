@@ -1,0 +1,64 @@
+.edit-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.edit-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-icon {
+  font-size: 45px;
+  color: #555;
+}
+
+.confirm-btn {
+  background-color: #1751cc;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-form {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 9px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 15px;
+}

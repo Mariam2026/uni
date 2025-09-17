@@ -7,7 +7,6 @@ import RequestHistory from "./pages/Requesthistory/requesthistory";
 import Login from "./pages/Login/login";
 import ResetPassword from "./pages/ResetPassword/resetpassword";
 import ChangePassword from "./pages/ChangePassword/changepassword";
-import Appointments from "./pages/Appointments/appointments";
 import Bookinglist from "./pages/Appointments/Bookinglist";
 import NotificationHistory from "./pages/Notification/NotificationHistory";
 import BookAppointment from "./pages/BookAppointments/book";
@@ -15,7 +14,8 @@ import SHome from "./pages/Dashboard/SHome";
 import SRequestHistory from "./pages/Requesthistory/SRequestHistory";
 import SLogin from "./pages/Login/SLogin";
 import SEditRequest from "./pages/Submitrequest/SEditRequest";
- // ✅ add this import
+import Profile from "./pages/Profile/profile";
+import EditProfile from "./pages/EditProfile/editprofile";
 
 function App() {
   return (
@@ -35,6 +35,8 @@ function App() {
         <Route path="/requests/staff" element={<SRequestHistory />} />
         <Route path="/requests/manage" element={<SEditRequest />} /> {/* ✅ fix */}
         <Route path="/notifications" element={<NotificationHistory />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
       </Routes>
     </Router>
   );

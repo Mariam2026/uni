@@ -1,3 +1,7 @@
+.notifications-list p {
+  margin-left: 43px;
+}
+
 .notification-card {
   display: flex;
   align-items: center;
