@@ -16,6 +16,9 @@ import SLogin from "./pages/Login/SLogin";
 import SEditRequest from "./pages/Submitrequest/SEditRequest";
 import Profile from "./pages/Profile/profile";
 import EditProfile from "./pages/EditProfile/editprofile";
+import StaffAppoint from "./pages/Appointments/staffappoint";
+import ManageAppoint from "./pages/ManageAppointments/manage";
+import AddUpdates from "./pages/AddUpdates/addupdates";
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
         <Route path="/notifications" element={<NotificationHistory />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/appointments/staff" element={<StaffAppoint />} />
+        <Route path="/appointments/staff/manage" element={<ManageAppoint />} />
+        <Route path="/addupdates" element={<AddUpdates />} />
       </Routes>
     </Router>
   );

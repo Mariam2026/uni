@@ -38,7 +38,6 @@
     font-size: 25px;
     padding-top: 20px;
     margin-left: 50px;
-    margin-top: 40px;
  
 }
 
@@ -54,6 +53,7 @@
   padding: 10px;          /* spacing inside */
   resize: none;           /* optional: disable drag resize */
   vertical-align: top;    /* text goes to top */
+  background-color: #fff;
 }
 
 
