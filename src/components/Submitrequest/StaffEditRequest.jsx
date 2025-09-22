@@ -25,7 +25,7 @@ export default function StaffEditRequest() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:8080/api/requests/${selectedRequestId}`,
+        `http://localhost:8080/api/requests/${selectedRequestId}/status`,
         { status, comment },
         {
           headers: {

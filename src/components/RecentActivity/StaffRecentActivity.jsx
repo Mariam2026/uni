@@ -28,22 +28,22 @@ export default function StaffRecentActivity() {
         });
         const notifications = await notifRes.json();
 
-        // Transform everything into a shared format
+        // Transform everything into staff actions
         const reqActivities = requests.map((r) => ({
           type: "request",
-          description: `Submitted a request for ${r.type}`,
-          time: r.createdDate,
+          description: `Edited status of request #${r.studentName} → ${r.status}`,
+          time: r.updatedDate || r.createdDate,
         }));
 
         const appActivities = appointments.map((a) => ({
           type: "appointment",
-          description: "Booked an appointment with the SA Staff",
-          time: a.createdAt,
+          description: `Updated appointment with ${a.studentName || "a student"}`,
+          time: a.updatedAt || a.createdAt,
         }));
 
         const notifActivities = notifications.map((n) => ({
           type: "notification",
-          description: n.message,
+          description: `System announcement: ${n.title || n.message}`,
           time: n.timestamp,
         }));
 
@@ -74,7 +74,6 @@ export default function StaffRecentActivity() {
 
   return (
     <div className="recent-activity">
-     
       <ul>
         {recentActivity.length === 0 ? (
           <li>No recent activity</li>

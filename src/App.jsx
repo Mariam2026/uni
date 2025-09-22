@@ -19,6 +19,7 @@ import EditProfile from "./pages/EditProfile/editprofile";
 import StaffAppoint from "./pages/Appointments/staffappoint";
 import ManageAppoint from "./pages/ManageAppointments/manage";
 import AddUpdates from "./pages/AddUpdates/addupdates";
+import ReportPage from "./pages/Reports/ReportPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/appointments/staff" element={<StaffAppoint />} />
         <Route path="/appointments/staff/manage" element={<ManageAppoint />} />
         <Route path="/addupdates" element={<AddUpdates />} />
+         <Route path="/report" element={<ReportPage />} />
       </Routes>
     </Router>
   );

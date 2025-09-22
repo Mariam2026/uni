@@ -20,32 +20,49 @@ export default function SHome() {
 
     const fetchData = async () => {
       try {
-        // Fetch active requests
-        const reqRes = await fetch("", {
+        const today = new Date().toISOString().split("T")[0]; 
+
+        // 🔹 Fetch requests
+        const reqRes = await fetch( "http://localhost:8080/api/requests", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const reqData = await reqRes.json();
-        setActiveRequests(reqData.length);
 
-        // Fetch appointments
-        const apptRes = await fetch("", {
+        // Filter only today's requests
+        const todaysRequests = reqData.filter(
+          (r) =>
+            new Date(r.createdDate).toISOString().split("T")[0] === today
+        );
+        setActiveRequests(todaysRequests.length);
+
+        // 🔹 Fetch appointments
+        const apptRes = await fetch("http://localhost:8080/api/appointments", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const apptData = await apptRes.json();
 
         if (!apptData.length) {
-          setUpcomingAppointment("No upcoming");
+         
         } else {
-          const now = new Date();
-          const upcoming = apptData
-            .filter(appt => new Date(appt.date) >= now)
-            .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
-
-          setUpcomingAppointment(
-            upcoming
-              ? ` ${new Date(upcoming.date).toLocaleDateString()}`
-              : "No upcoming"
+          const todaysAppts = apptData.filter(
+            (appt) =>
+              new Date(appt.date).toISOString().split("T")[0] === today
           );
+
+          if (!todaysAppts.length) {
+           
+          } else {
+            setUpcomingAppointment(
+              todaysAppts
+                .map((appt) =>
+                  new Date(appt.date).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                )
+                .join(", ")
+            );
+          }
         }
       } catch (err) {
         console.error("Error fetching data:", err);

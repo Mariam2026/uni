@@ -1,11 +1,11 @@
-import ManageAppointList from "../../components/ManageAppointList/manageappoint";
 import Navbar from "../../components/Navbar/Navbar";
 import StaffRequestHistory from "../../components/RequestHistorylist/StaffRequestHistory";
 import StaffStatsSection from "../../components/Stats/StaffStatsSection";
 import StaffSidebar from "../../components/Sidebar/StaffSidebar";
+import ReportsAnalytics from "../../components/Reports/ReportsAnalytics"
 import "../Dashboard/Layout.css"; 
 
-export default function SRequestHistory() {
+export default function ReportPage() {
   const storedUser = JSON.parse(localStorage.getItem("user")) || {};
   const studentName = storedUser.name || "Student Name";
   const profilePic = storedUser.profilePic || "";
@@ -16,7 +16,7 @@ export default function SRequestHistory() {
       <div className="body-container">
         <StaffSidebar />
         <main className="main-content">
-            <ManageAppointList />
+          <ReportsAnalytics />
         </main>
       </div>
     </div>

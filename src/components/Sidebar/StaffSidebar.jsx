@@ -24,7 +24,7 @@ export default function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link to="/updates" className="sidebar-link">
+            <Link to="/report" className="sidebar-link">
               <FiBell size={25} /> Reports
             </Link>
           </li>
