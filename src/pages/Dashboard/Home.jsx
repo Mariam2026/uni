@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FaCommentAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import QuickActions from "../../components/QuickActions/QuickActions";
@@ -6,9 +8,12 @@ import StatsSection from "../../components/Stats/StatsSection";
 import RecentActivity from "../../components/RecentActivity/RecentActivity";
 import "./Layout.css";
 
+
 export default function Home() {
   const [activeRequests, setActiveRequests] = useState(0);
   const [upcomingAppointment, setUpcomingAppointment] = useState("No upcoming");
+
+  const navigate = useNavigate();
 
   const storedUser = JSON.parse(localStorage.getItem("user")) || {};
   const studentName = storedUser.name || "Student Name";
@@ -55,6 +60,10 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const goToChatbot = () => {
+    navigate("/chatbot");
+  };
+
   return (
     <div className="dashboard-layout">
       <Navbar studentName={studentName} profilePic={profilePic} />
@@ -70,6 +79,11 @@ export default function Home() {
           <h3>Recent Activity</h3>
           <RecentActivity />
         </main>
+      </div>
+
+      {/* Floating Chatbot Icon */}
+      <div className="chatbot-float" onClick={goToChatbot}>
+        <FaCommentAlt />
       </div>
     </div>
   );
