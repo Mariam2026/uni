@@ -29,7 +29,7 @@ export default function SignupForm() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8080/api/auth/staff/signup", {
+      const res = await fetch("http://localhost:8080/api/auth/student/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

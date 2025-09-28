@@ -1,16 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./profilelist.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function ProfileList() {
-  const [profile, setProfile] = useState({
-    id: "20220000",
-    name: "Student Name",
-    email: "student.name@university.edu",
-    phone: "(123) 456-7890",
-    address: "123 University Ave, City, State, Zip",
-    department: "AI",
-  });
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          console.error("Missing token");
+          return;
+        }
+
+        const res = await axios.get("http://localhost:8080/api/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        setProfile(res.data);
+      } catch (err) {
+        console.error("Failed to load profile:", err);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (!profile) {
+    return <p>Loading profile...</p>;
+  }
 
   return (
     <div className="profile-container px-4">
@@ -45,7 +66,7 @@ export default function ProfileList() {
 
         <div className="profile-row">
           <span className="label">Phone</span>
-          <span className="value">{profile.phone}</span>
+          <span className="value">{profile.phoneNumber}</span>
         </div>
 
         <div className="profile-row">
@@ -53,11 +74,14 @@ export default function ProfileList() {
           <span className="value">{profile.address}</span>
         </div>
 
-        <div className="profile-row">
-          <span className="label">Department</span>
-          <span className="value">{profile.department}</span>
-        </div>
+        {profile.department && (
+          <div className="profile-row">
+            <span className="label">Department</span>
+            <span className="value">{profile.department}</span>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
