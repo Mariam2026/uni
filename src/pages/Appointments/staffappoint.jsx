@@ -1,5 +1,5 @@
 import Navbar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import StaffSidebar from "../../components/Sidebar/StaffSidebar";
 import StaffAppointList from "../../components/StaffAppointList/staffappointlist";
 import "../Dashboard/Layout.css"; 
 export default function StaffAppoint() {
@@ -10,7 +10,7 @@ export default function StaffAppoint() {
         <div className="dashboard-layout">
           <Navbar studentName={studentName} profilePic={profilePic} />
           <div className="body-container">
-            <Sidebar />
+            <StaffSidebar />
             <main className="main-content">
                 <StaffAppointList />
             </main>

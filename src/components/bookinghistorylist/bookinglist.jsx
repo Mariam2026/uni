@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiCalendar, FiClock } from "react-icons/fi";
 import "./bookinglist.css"; // reuse your existing styles
+import { Link } from "react-router-dom";
 
 export default function BookingHistory() {
   const [appointments, setAppointments] = useState([]);
@@ -34,6 +35,9 @@ export default function BookingHistory() {
     <div className="req">
       <div className="header-row">
         <h2>My Appointments</h2>
+        <Link to={"/appointments/book"} className="create-link">
+          <span className="plus">+ </span>Create New Appointment
+        </Link>
       </div>
 
       <div className="requests-list">

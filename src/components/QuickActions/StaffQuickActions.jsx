@@ -12,13 +12,13 @@ export default function StaffQuickActions() {
           Manage<br /> Requests 
         </span>
       </Link>
-      <Link to="/appointments/manage" className="action-card">
+      <Link to="/appointments/staff/manage" className="action-card">
         <FiCalendar size={36} className="action-icon" />
         <span>
          Manage<br />Appointment
         </span>
       </Link>
-      <Link to="/updates" className="action-card">
+      <Link to="/addupdates" className="action-card">
         <FiBell size={36} className="action-icon" />
         <span>
           Add<br />Updates
