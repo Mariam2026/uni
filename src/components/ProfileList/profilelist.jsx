@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./profilelist.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function ProfileList() {
-  const [profile, setProfile] = useState({
-    id: "20220000",
-    name: "Student Name",
-    email: "student.name@university.edu",
-    phone: "(123) 456-7890",
-    address: "123 University Ave, City, State, Zip",
-    department: "AI",
-  });
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("Missing token");
+          return;
+        }
+
+        const res = await axios.get("http://localhost:8080/api/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        setProfile(res.data);
+      } catch (err) {
+        console.error("Failed to load profile:", err);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (!profile) {
+    return <p>Loading profile...</p>;
+  }
 
   return (
     <div className="profile-container px-4">
@@ -28,36 +48,57 @@ export default function ProfileList() {
       <div className="profile-card">
         <h3 className="profile-card-title">Profile Details</h3>
 
+        {/* ID */}
         <div className="profile-row">
           <span className="label">ID</span>
-          <span className="value">{profile.id}</span>
+          <span className="value">{profile.id || profile.staffID}</span>
         </div>
 
+        {/* Name */}
         <div className="profile-row">
           <span className="label">Name</span>
           <span className="value">{profile.name}</span>
         </div>
 
+        {/* Email */}
         <div className="profile-row">
           <span className="label">Email</span>
           <span className="value">{profile.email}</span>
         </div>
 
-        <div className="profile-row">
-          <span className="label">Phone</span>
-          <span className="value">{profile.phone}</span>
-        </div>
+        {/* Phone (students only) */}
+        {profile.phoneNumber && (
+          <div className="profile-row">
+            <span className="label">Phone</span>
+            <span className="value">{profile.phoneNumber}</span>
+          </div>
+        )}
 
-        <div className="profile-row">
-          <span className="label">Address</span>
-          <span className="value">{profile.address}</span>
-        </div>
+        {/* Address (students only) */}
+        {profile.address && (
+          <div className="profile-row">
+            <span className="label">Address</span>
+            <span className="value">{profile.address}</span>
+          </div>
+        )}
 
-        <div className="profile-row">
-          <span className="label">Department</span>
-          <span className="value">{profile.department}</span>
-        </div>
+        {/* Department (students only) */}
+        {profile.department && (
+          <div className="profile-row">
+            <span className="label">Department</span>
+            <span className="value">{profile.department}</span>
+          </div>
+        )}
+
+        {/* Staff Role (staff only) */}
+        {profile.role && (
+          <div className="profile-row">
+            <span className="label">Role</span>
+            <span className="value">{profile.role}</span>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
