@@ -19,6 +19,7 @@ import EditProfile from "./pages/EditProfile/editprofile";
 import StaffAppoint from "./pages/Appointments/staffappoint";
 import ManageAppoint from "./pages/ManageAppointments/manage";
 import AddUpdates from "./pages/AddUpdates/addupdates";
+import Sprofile from "./pages/Profile/Sprofile";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/requests/manage" element={<SEditRequest />} /> {/* ✅ fix */}
         <Route path="/notifications" element={<NotificationHistory />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/staff" element={<Sprofile />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/appointments/staff" element={<StaffAppoint />} />
         <Route path="/appointments/staff/manage" element={<ManageAppoint />} />
