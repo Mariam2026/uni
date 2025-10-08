@@ -96,7 +96,7 @@ export default function StaffRequestHistory() {
     <div className="req">
       <div className="header-row">
         <h2>All Requests</h2>
-        {/* 🔹 Search bar */}
+       \
         <input
           type="text"
           className="search-bar"
@@ -146,7 +146,7 @@ export default function StaffRequestHistory() {
               View Document
             </button>
 
-            {/* 🔹 Navigate to edit page with requestId */}
+            
             <button
               className="select-btn"
               onClick={() =>

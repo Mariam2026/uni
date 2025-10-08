@@ -6,43 +6,62 @@ export default function BookingForm() {
   const [purpose, setPurpose] = useState("Academic Advising");
   const [staffID, setStaffID] = useState(1);
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("10:30"); 
+  const [time, setTime] = useState("10:30");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
+    e.preventDefault();
     const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to book an appointment.");
       return;
     }
 
-    const res = await axios.post(
-      "http://localhost:8080/api/appointments",
-      {
-        status: "Scheduled",       
-        purpose: purpose,
-        staffID: 1,
-        date: date,                // backend should expect LocalDate
-        time: time + ":00",        // backend expects HH:mm:ss
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`, // ✅ token added
-          "Content-Type": "application/json",
+    setLoading(true);
+
+    try {
+      // Send booking request directly to backend
+      const res = await axios.post(
+        "http://localhost:8080/api/appointments",
+        {
+          status: "Scheduled",
+          purpose,
+          staffID,
+          date,
+          time: time + ":00",
         },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      alert("Appointment scheduled successfully!");
+      console.log(res.data);
+      setDate("");
+      setTime("10:30");
+    } catch (err) {
+      // Extract backend error message correctly
+      let message = "Failed to schedule appointment.";
+
+      if (err.response?.data) {
+        if (typeof err.response.data === "string") {
+          message = err.response.data; // simple string
+        } else if (err.response.data.message) {
+          message = err.response.data.message; // backend sends { message: "..." }
+        } else {
+          message = JSON.stringify(err.response.data); // fallback
+        }
       }
-    );
 
-    alert("Appointment scheduled successfully!");
-    console.log(res.data);
-  } catch (err) {
-    console.error(err.response?.data || err.message);
-    alert("Failed to schedule appointment");
-  }
-};
-
+      alert(message);
+      console.error(message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="req">
@@ -91,8 +110,8 @@ export default function BookingForm() {
           required
         />
 
-        <button type="submit" className="sub">
-          Schedule Appointment
+        <button type="submit" className="sub" disabled={loading}>
+          {loading ? "Scheduling..." : "Schedule Appointment"}
         </button>
       </form>
     </div>
